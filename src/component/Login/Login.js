@@ -17,19 +17,6 @@ function Login() {
       })
       .catch((error) => alert(error.message));
   };
-  const register = (e) => {
-    e.preventDefault();
-    //Do some fancy firebase register
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((auth) => {
-        console.log(auth);
-        if (auth) {
-          history.push("/");
-        }
-      })
-      .catch((error) => alert(error.message));
-  };
   return (
     <div className="login">
       <Link to="/">
@@ -40,7 +27,7 @@ function Login() {
         />
       </Link>
       <div className="login__container">
-        <h1>sign-in</h1>
+        <h1>Sign-in</h1>
         <form>
           <h5>E-mail</h5>
           <input
@@ -69,9 +56,11 @@ function Login() {
           Sale. Please see our Privacy Notice, our Cookies Notice and our
           Interest-based Ads Notice.
         </p>
-        <button onClick={register} className="login__registerButton">
+        <hr className="login-hr" />
+        <div className="login-newtoAmazon-title">New to Amazon?</div>
+        <Link to="/createAccount" className="login__registerButton">
           Create your Amazon Account{" "}
-        </button>
+        </Link>
       </div>
     </div>
   );

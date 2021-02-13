@@ -7,6 +7,7 @@ import Checkout from "./component/Checkout/Checkout";
 import Login from "./component/Login/Login";
 import { auth } from "./firebase";
 import { useStateValue } from "./component/stateProvider";
+import CreateAccount from "./component/CreateAccount/CreateAccount";
 
 function App() {
   const [{}, dispatch] = useStateValue();
@@ -15,6 +16,7 @@ function App() {
     auth.onAuthStateChanged((authUser) => {
       console.log("THE USER IS >>> ", authUser);
       if (authUser) {
+        console.log(authUser);
         //the user just logged in / the user was logged in
         dispatch({
           type: "SET_USER",
@@ -34,6 +36,9 @@ function App() {
       <Router>
         <div className="app">
           <Switch>
+            <Route path="/createAccount">
+              <CreateAccount />
+            </Route>
             <Route path="/login">
               <Login />
             </Route>

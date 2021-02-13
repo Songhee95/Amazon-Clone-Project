@@ -1,16 +1,41 @@
 import React from "react";
 import Product from "../Product/Product";
 import "./Home.css";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 function Home() {
   return (
     <div className="home">
       <div className="home__container">
-        <img
+        <Carousel
           className="home__image"
-          src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
-          alt=""
-        />
+          autoPlay
+          interval="5000"
+          transitionTime="1000"
+          infiniteLoop={true}
+          showThumbs={false}
+        >
+          <div>
+            <img
+              src="https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/Brand/JD/2021/Jan_default_onsite/XCM_Manual_1302634-gw_desk_tall-control-en-1x_a4828bce-9dbf-42ae-82d6-a6e42ead4ca4._CB411473854_.png"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="https://images-na.ssl-images-amazon.com/images/G/01/kindle/journeys/YjgwNDI1YjYt/YjgwNDI1YjYt-ZjI5NmFiYzEt-w1500._CB661643492_.jpg"
+              alt="..."
+            />
+          </div>
+          <div>
+            <img
+              src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonMusic/2021/WeeklyBuild/012221/012221_US_InvisibleBlacknesswithAdrianYounge_OS_GW_Hero_D_ORIGINALS_1500x600._CB662417560_.jpg"
+              alt="..."
+            />
+          </div>
+        </Carousel>
+
         <div className="home__row">
           <Product
             id="1"
