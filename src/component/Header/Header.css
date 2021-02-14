@@ -97,3 +97,20 @@
 .header__basketCount {
   margin-right: 10px;
 }
+.header__bottom__wrap {
+  background: rgb(44, 44, 63);
+  height: 45px;
+  padding-top: 7px;
+}
+.header__bottom__box {
+  margin: 10px;
+}
+.header__bottom__link {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+.MuiSvgIcon-root {
+  margin: 0 10px;
+  font-size: 3rem;
+}

@@ -9,14 +9,20 @@ function Checkout() {
   return (
     <div className="checkout">
       <div className="checkout__left">
-        <img
-          className="checkout__ad"
-          src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg"
-          alt=""
-        />
-        <div>
-          <h3>Hello, {user?.email}</h3>
-          <h2 className="checkout__title">Your shopping Basket</h2>
+        <div className="checkout__image">
+          <img
+            className="checkout__ad"
+            src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg"
+            alt=""
+          />
+        </div>
+
+        <div className="checkout__cart">
+          <h2 className="checkout__title">Shopping Cart</h2>
+          <div className="checkout__deselect__checkbox">
+            <button>Deselect all items</button>
+          </div>
+          <div className="checkout__price">Price</div>
           {basket.map((item) => (
             <CheckoutProduct
               id={item.id}
@@ -26,6 +32,13 @@ function Checkout() {
               rating={item.rating}
             />
           ))}
+          <div className="checkout__bottom__subtotal">
+            Subtotal ({basket.length} item):
+            <span className="checkout__bottom__subtotal__price">
+              {" "}
+              ${basket.reduce((acc, item) => acc + item.price, 0)}
+            </span>
+          </div>
         </div>
       </div>
       <div className="checkout__right">

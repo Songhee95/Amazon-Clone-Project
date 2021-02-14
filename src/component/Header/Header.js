@@ -6,6 +6,8 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../stateProvider";
 import { auth } from "../../firebase";
+import MenuIcon from "@material-ui/icons/Menu";
+import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
 function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -75,6 +77,37 @@ function Header() {
             </div>
           </Link>
         </div>
+      </div>
+
+      <div className="header__bottom__wrap">
+        <span className="header__bottom__box">
+          <Link className="header__bottom__link">
+            <MenuIcon />
+            All
+          </Link>
+        </span>
+        <span className="header__bottom__box">
+          <Link className="header__bottom__link">Subscribe & Save</Link>
+        </span>
+        <span className="header__bottom__box">
+          <Link className="header__bottom__link">Buy Again</Link>
+        </span>
+        <span className="header__bottom__box">
+          <Link className="header__bottom__link">
+            {!user ? "Guest" : user.displayName}'s Amazon.com
+          </Link>
+        </span>
+        <span className="header__bottom__box">
+          <Link className="header__bottom__link">Today's Deals</Link>
+        </span>
+        <span className="header__bottom__box">
+          <Link className="header__bottom__link">Customer Service</Link>
+        </span>
+        <span className="header__bottom__box">
+          <Link className="header__bottom__link">
+            Prime <ArrowDropDownIcon />
+          </Link>
+        </span>
       </div>
     </>
   );
