@@ -105,6 +105,14 @@
 .header__bottom__box {
   margin: 10px;
 }
+.header__bottom__link__hamburger {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+.header__bottom__link__hamburger > svg {
+  font-size: 30px;
+}
 .header__bottom__link {
   text-decoration: none;
   color: white;
@@ -113,4 +121,7 @@
 .MuiSvgIcon-root {
   margin: 0 10px;
   font-size: 3rem;
+}
+.header__bottom__link > svg {
+  margin: 0;
 }

@@ -81,16 +81,21 @@ function Header() {
 
       <div className="header__bottom__wrap">
         <span className="header__bottom__box">
-          <Link className="header__bottom__link">
+          <Link className="header__bottom__link__hamburger">
             <MenuIcon />
             All
           </Link>
         </span>
         <span className="header__bottom__box">
-          <Link className="header__bottom__link">Subscribe & Save</Link>
+          <Link className="header__bottom__link">
+            {!user ? "Best Seller" : "Subscribe & Save"}
+          </Link>
         </span>
         <span className="header__bottom__box">
-          <Link className="header__bottom__link">Buy Again</Link>
+          <Link className="header__bottom__link">
+            {!user ? "Prime" : "Buy Again"}
+            {!user && <ArrowDropDownIcon />}
+          </Link>
         </span>
         <span className="header__bottom__box">
           <Link className="header__bottom__link">
@@ -101,12 +106,21 @@ function Header() {
           <Link className="header__bottom__link">Today's Deals</Link>
         </span>
         <span className="header__bottom__box">
-          <Link className="header__bottom__link">Customer Service</Link>
+          <Link className="header__bottom__link">
+            {!user ? "New Releases" : "Customer Service"}
+          </Link>
         </span>
         <span className="header__bottom__box">
           <Link className="header__bottom__link">
-            Prime <ArrowDropDownIcon />
+            {!user ? "Books" : "Prime"}
+            {user && <ArrowDropDownIcon />}
           </Link>
+        </span>
+        <span className="header__bottom__box">
+          <Link className="header__bottom__link">{!user && "Find a gift"}</Link>
+        </span>
+        <span className="header__bottom__box">
+          <Link className="header__bottom__link">{!user && "Fashion"}</Link>
         </span>
       </div>
     </>
