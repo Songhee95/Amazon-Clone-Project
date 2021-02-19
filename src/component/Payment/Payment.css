@@ -1,15 +1,22 @@
 .payment {
   background-color: white;
 }
-.payment__container > h1 {
-  text-align: center;
-  padding: 10px;
+.payment__header {
+  background-color: rgb(241, 241, 241);
+  font-size: 35px;
   font-weight: 400;
-  background-color: rgb(234, 237, 237);
-  border-bottom: 1px solid lightgray;
+  padding: 12px 5%;
 }
-.payment__container > h1 a {
+.payment__header > a {
   text-decoration: none;
+  color: #007185;
+}
+.payment__title {
+  display: flex;
+  flex-direction: row;
+}
+.payment__title > h3 {
+  margin-right: 20px;
 }
 .payment__section {
   display: flex;
@@ -17,10 +24,28 @@
   margin: 0 20px;
   border-bottom: 1px solid lightgray;
 }
-
+.payment__section__review {
+  padding: 20px;
+  margin: 0 20px;
+}
 .payment__title {
   flex: 0.2;
 }
 .payment__address {
   flex: 0.8;
+  font-size: 18px;
+}
+.payment__section__review__items {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 20px;
+}
+.payment__section__review__delivery__date {
+  color: #007600;
+  font-size: 22px;
+  font-weight: 700;
+}
+.payment__section__review__sub {
+  margin-bottom: 10px;
 }

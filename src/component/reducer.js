@@ -6,9 +6,25 @@ export const getBasketTotal = (basket) =>
   basket?.reduce((acc, item) => item.price + acc, 0);
 
 const reducer = (state, action) => {
-  console.log(action);
   switch (action.type) {
     case "ADD_TO_BASKET":
+      console.log(state.basket);
+      const findKey = state.basket.findIndex(
+        (obj) => obj.id === action.item.id
+      );
+      console.log(findKey);
+      if (findKey !== -1) {
+        const newState = [
+          ...state.basket.slice(0, findKey),
+          {
+            ...state.basket[findKey],
+            qty: state.basket[findKey].qty + 1,
+            price: state.basket[findKey].price * 2,
+          },
+          ...state.basket.slice(findKey + 1),
+        ];
+        return { ...state, basket: newState };
+      }
       return {
         ...state,
         basket: [...state.basket, action.item],

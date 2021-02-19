@@ -1,0 +1,27 @@
+.reviewProduct__Image {
+  width: 80px;
+}
+.reviewProduct__body {
+  display: flex;
+  flex-direction: row;
+}
+.reviewProduct__body__section {
+  margin: 0 10px;
+}
+.reviewProduct__title {
+  font-weight: 700;
+  font-size: 17px;
+}
+.reviewProduct__price {
+  color: #b12704;
+  font-size: 18px;
+  font-weight: 700;
+}
+.reviewProduct__qty {
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  background-color: #e7e9ec;
+}
+.reviewProduct__body__section__second {
+  width: 250px;
+}
