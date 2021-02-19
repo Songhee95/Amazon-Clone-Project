@@ -103,6 +103,7 @@ function Payment() {
                     day={day}
                     year={year}
                     month={month}
+                    qty={item.qty}
                   />
                 </div>
               ))}

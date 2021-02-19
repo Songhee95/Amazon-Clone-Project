@@ -2,15 +2,8 @@ import React from "react";
 import { useStateValue } from "../stateProvider";
 import "./ReviewProducts.css";
 
-function ReviewProducts({ id, image, title, price, year, day, month }) {
+function ReviewProducts({ id, image, title, price, year, day, month, qty }) {
   const [{ basket }, dispatch] = useStateValue();
-  let quantity = 0;
-  for (const item of basket) {
-    if (item.id === id) {
-      quantity++;
-    }
-  }
-  console.log(quantity);
   const addToBasket = (e) => {
     e.preventDefault();
     // dispatch({
@@ -34,7 +27,7 @@ function ReviewProducts({ id, image, title, price, year, day, month }) {
             onChange={addToBasket}
           >
             <option disabled selected>
-              {quantity}
+              {qty}
             </option>
             <option value="1">1</option>
             <option value="2">2</option>

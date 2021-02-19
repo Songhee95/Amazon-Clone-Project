@@ -30,6 +30,7 @@ function Checkout() {
               image={item.image}
               price={item.price}
               rating={item.rating}
+              qty={item.qty}
             />
           ))}
           <div className="checkout__bottom__subtotal">

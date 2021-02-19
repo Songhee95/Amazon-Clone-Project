@@ -18,8 +18,8 @@ const reducer = (state, action) => {
           ...state.basket.slice(0, findKey),
           {
             ...state.basket[findKey],
-            qty: state.basket[findKey].qty + 1,
-            price: state.basket[findKey].price * 2,
+            qty: parseInt(state.basket[findKey].qty) + 1,
+            price: state.basket[findKey].price + state.basket[findKey].oriPrice,
           },
           ...state.basket.slice(findKey + 1),
         ];
@@ -48,6 +48,21 @@ const reducer = (state, action) => {
         ...state,
         user: action.user,
       };
+    case "CHANGE_QTY":
+      const findKeyForQty = state.basket.findIndex(
+        (obj) => obj.id === action.id
+      );
+      const newState = [
+        ...state.basket.slice(0, findKeyForQty),
+        {
+          ...state.basket[findKeyForQty],
+          qty: parseInt(action.qty),
+          price: state.basket[findKeyForQty].oriPrice * action.qty,
+        },
+        ...state.basket.slice(findKeyForQty + 1),
+      ];
+      return { ...state, basket: newState };
+
     default:
       return state;
   }
