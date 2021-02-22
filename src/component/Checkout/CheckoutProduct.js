@@ -3,7 +3,7 @@ import { useStateValue } from "../stateProvider";
 import "./CheckoutProduct.css";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
-function CheckoutProduct({ id, image, title, price, qty }) {
+function CheckoutProduct({ id, image, title, price, qty, hideButton }) {
   const [{ basket }, dispatch] = useStateValue();
   const [open, setOpen] = useState(false);
   const removeFromBasket = () => {
@@ -81,12 +81,14 @@ function CheckoutProduct({ id, image, title, price, qty }) {
               </button>
             </span>
             <span>
-              <button
-                className="checkoutProduct__btn"
-                onClick={removeFromBasket}
-              >
-                Delete
-              </button>
+              {!hideButton && (
+                <button
+                  className="checkoutProduct__btn"
+                  onClick={removeFromBasket}
+                >
+                  Delete
+                </button>
+              )}
             </span>
             <span>
               <button className="checkoutProduct__btn save__for__later__button">
