@@ -2,7 +2,7 @@ import React from "react";
 import { useStateValue } from "../stateProvider";
 import "./ReviewProducts.css";
 
-function ReviewProducts({ id, image, title, price, year, day, month, qty }) {
+function ReviewProducts({ id, image, title, price, day, month, qty }) {
   const [{ basket }, dispatch] = useStateValue();
   const addToBasket = (e) => {
     e.preventDefault();
@@ -40,7 +40,7 @@ function ReviewProducts({ id, image, title, price, year, day, month, qty }) {
         <div className="reviewProduct__body__section">
           <div>Choose your Prime delivery option: </div>
           <input type="radio" defaultChecked />
-          {`${day}, ${month}.${year}`}
+          {day}
           <div>FREE Standard Delivery</div>
         </div>
       </div>

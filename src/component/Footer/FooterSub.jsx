@@ -6,7 +6,8 @@ function FooterSub() {
     <>
       <div className="footer__sub__bottom">
         <table className="footer__sub__bottom">
-          <span className="footer__sub__td__wrap">
+          <tbody>
+          <tr className="footer__sub__td__wrap">
             <FooterSubNav title="Amazon Music" sub="Stream millions of songs" />
             <FooterSubNav
               title="Sell on Amazon"
@@ -19,8 +20,8 @@ function FooterSub() {
             <FooterSubNav title="Fabric" sub="Sewing, Quilting & Knitting" />
             <FooterSubNav title="Shopbob" sub="Designer Fashion Brands" />
             <FooterSubNav title="" sub="" />
-          </span>
-          <span className="footer__sub__td__wrap">
+          </tr>
+          <tr className="footer__sub__td__wrap">
             <FooterSubNav
               title="Amazon Advertising"
               sub="Find, attract, and engage customers"
@@ -45,8 +46,8 @@ function FooterSub() {
               title="Neighbors App"
               sub="Real-Time Crime & Safety Alerts"
             />
-          </span>
-          <span className="footer__sub__td__wrap">
+          </tr>
+          <tr className="footer__sub__td__wrap">
             <FooterSubNav title="Amazon Drive" sub="Amazon Fresh" />
             <FooterSubNav title="Amazon Fresh" sub="Groceries & More" />
             <FooterSubNav
@@ -62,8 +63,8 @@ function FooterSub() {
               title="Amazon Subscription Boxes"
               sub="Top subscription boxes-right to your door"
             />
-          </span>
-          <span className="footer__sub__td__wrap">
+          </tr>
+          <tr className="footer__sub__td__wrap">
             <FooterSubNav title="6pm" sub="Store deals on fashion brands" />
             <FooterSubNav
               title="Amazon Global"
@@ -79,8 +80,8 @@ function FooterSub() {
             />
             <FooterSubNav title="Woot!" sub="Deals and Shenanigans" />
             <FooterSubNav title="PillPack" sub="Pharmacy Simplified" />
-          </span>
-          <span className="footer__sub__td__wrap">
+          </tr>
+          <tr className="footer__sub__td__wrap">
             <FooterSubNav title="AbeBooks" sub="Books , art & collectibles" />
             <FooterSubNav
               title="Home Services"
@@ -99,8 +100,8 @@ function FooterSub() {
               title="Amazon Renewed"
               sub="Like-new products you can trust"
             />
-          </span>
-          <span className="footer__sub__td__wrap">
+          </tr>
+          <tr className="footer__sub__td__wrap">
             <FooterSubNav title="ACX" sub="Audiobook Publishing Made Easy" />
             <FooterSubNav
               title="Amazon Ignite"
@@ -116,8 +117,8 @@ function FooterSub() {
               sub="Pass it on, trade it in, give it a second life"
             />
             <FooterSubNav title="" sub="" />
-          </span>
-          <span className="footer__sub__td__wrap">
+          </tr>
+          <tr className="footer__sub__td__wrap">
             <FooterSubNav
               title="Alexa"
               sub="Actionable Analytics for the Web"
@@ -136,7 +137,8 @@ function FooterSub() {
               sub="Stream 4k Video in Every Room"
             />
             <FooterSubNav title="" sub="" />
-          </span>
+          </tr>
+          </tbody>
         </table>
       </div>
       <div className="footer__sub__footer">

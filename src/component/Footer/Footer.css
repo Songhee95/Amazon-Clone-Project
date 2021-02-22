@@ -68,6 +68,10 @@
   font-size: 18px;
   color: #ddd;
 }
+tbody {
+  width: 100%;
+  display: flex;
+}
 
 .footer__sub__bottom {
   background-color: #131a22;
