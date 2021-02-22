@@ -3,10 +3,22 @@ import { db } from "../../firebase";
 import "./Orders.css";
 import { useStateValue } from "../stateProvider";
 import Order from "./Order";
+import { Link, useHistory } from "react-router-dom";
 
 function Orders() {
   const [{ basket, user }, dispatch] = useStateValue();
-  const [orders, setOrders] = useState({});
+  const [orders, setOrders] = useState([]);
+  const [selected, setSelected] = useState({});
+  const History = useHistory();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    orders.map((item) => {
+      if (item.id === e.target.value) {
+        setSelected(item);
+      }
+    });
+  };
 
   useEffect(() => {
     if (user) {
@@ -31,9 +43,12 @@ function Orders() {
       <h1>Your orders</h1>
       <div className="orders__order">
         {orders?.map((order) => (
-          <Order order={order} />
+          <button onClick={handleClick} value={order.id}>
+            {order.id}
+          </button>
         ))}
       </div>
+      {selected && <Order order={selected} />}
     </div>
   );
 }

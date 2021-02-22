@@ -13,6 +13,7 @@ import Footer from "./component/Footer/Footer";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import Orders from "./component/Orders/Orders";
+import Order from "./component/Orders/Order";
 
 const promise = loadStripe(
   "pk_test_51IMHDbFQysOK7S4CRTjfyuY41YcRshtIp0Zp3XVqIOEbyShJAzAdiJ95CtXfkRhr1j728aiBXeQRZUe5wqvOWCct00pQSfsLdD"
@@ -49,6 +50,10 @@ function App() {
             <Route path="/orders">
               <Header />
               <Orders />
+            </Route>
+            <Route path="/order">
+              <Header />
+              <Order />
             </Route>
             <Route path="/login">
               <Login />
