@@ -19,6 +19,21 @@ app.use(express.json());
 app.get("/", (request, response) => {
   response.status(200).send("hello world");
 });
+
+// eslint-disable-next-line
+app.post("/payments/create", async (req, res) => {
+  const total = req.query.total;
+  console.log("Payment Request Received ", total);
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: total,
+    currency: "usd",
+  });
+  //ok - created
+  res.status(201).send({
+    clientSecret: paymentIntent.client_secret,
+  });
+});
+
 // LISTEN COMMAND
 exports.api = functions.https.onRequest(app);
 
