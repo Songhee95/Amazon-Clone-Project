@@ -5,9 +5,8 @@ import { useStateValue } from "../stateProvider";
 import { getBasketTotal } from "../reducer";
 import { useHistory } from "react-router-dom";
 
-function Subtotal() {
+function Subtotal({ basket }) {
   const history = useHistory();
-  const [{ basket }, dispatch] = useStateValue();
   return (
     <div className="subtotal">
       <CurrencyFormat
