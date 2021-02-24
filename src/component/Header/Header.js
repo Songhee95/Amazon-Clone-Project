@@ -16,6 +16,7 @@ function Header() {
   const handleAuthentication = () => {
     if (user) {
       auth.signOut();
+      window.location.replace("/");
     }
   };
 
