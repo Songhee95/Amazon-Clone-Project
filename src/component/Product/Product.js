@@ -30,7 +30,7 @@ function Product({ id, title, image, price, rating }) {
           .doc(user?.uid)
           .collection("basket")
           .doc(item.id)
-          .set({ item: item });
+          .set({ item });
       });
     }
   }, [add]);

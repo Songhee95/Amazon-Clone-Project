@@ -12,7 +12,7 @@ import { db } from "../../firebase";
 
 function Header() {
   const [{ user }, dispatch] = useStateValue();
-  const [basket, setBasket] = useState({});
+  const [basket, setBasket] = useState();
   const handleAuthentication = () => {
     if (user) {
       auth.signOut();

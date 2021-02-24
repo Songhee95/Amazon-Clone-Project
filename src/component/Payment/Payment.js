@@ -86,7 +86,13 @@ function Payment() {
           type: "EMPTY_BASKET",
         });
 
-        // db.collection("users").doc(user?.uid).collection("basket").set();
+        db.collection("users")
+          .doc(user?.uid)
+          .collection("basket")
+          .get()
+          .then((res) => {
+            res.forEach((element) => element.ref.delete());
+          });
 
         history.replace("/orders");
       });
