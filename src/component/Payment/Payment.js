@@ -11,7 +11,7 @@ import { db } from "../../firebase";
 
 function Payment() {
   const history = useHistory();
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
   //stripe payment
   const stripe = useStripe();
   const elements = useElements();
@@ -21,6 +21,24 @@ function Payment() {
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState(true);
+
+  const [basket, setBasket] = useState([]);
+  useEffect(() => {
+    if (user) {
+      db.collection("users")
+        .doc(user?.uid)
+        .collection("basket")
+        .onSnapshot((data) => {
+          let allData = [];
+          data.docs.map((doc) => {
+            console.log(doc.data());
+            allData.push(doc.data().item);
+          });
+          console.log(allData);
+          setBasket(allData);
+        });
+    }
+  }, [user]);
 
   useEffect(() => {
     // generate the special stripe secret which allows us to charge a customer
