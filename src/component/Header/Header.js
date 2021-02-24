@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
 import LocationIcon from "@material-ui/icons/LocationOn";
@@ -8,14 +8,32 @@ import { useStateValue } from "../stateProvider";
 import { auth } from "../../firebase";
 import MenuIcon from "@material-ui/icons/Menu";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import { db } from "../../firebase";
 
 function Header() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
+  const [basket, setBasket] = useState({});
   const handleAuthentication = () => {
     if (user) {
       auth.signOut();
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      db.collection("users")
+        .doc(user?.uid)
+        .collection("basket")
+        .onSnapshot((data) => {
+          console.log(data.docs.length);
+          setBasket(data.docs.length);
+          // data.docs.map((doc) => {
+          //   console.log(doc.data());
+          //   setBasket(doc.data().item);
+          // });
+        });
+    }
+  }, [user]);
 
   return (
     <>
@@ -76,7 +94,7 @@ function Header() {
             <div className="header__optionBasket">
               <ShoppingBasketIcon />
               <span className="header__optionLineTwo header__basketCount">
-                {basket?.length}
+                {basket ? basket : 0}
               </span>
             </div>
           </Link>

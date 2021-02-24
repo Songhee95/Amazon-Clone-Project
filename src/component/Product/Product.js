@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useStateValue } from "../stateProvider";
 import "./Product.css";
+import { db } from "../../firebase";
 
 function Product({ id, title, image, price, rating }) {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
+  const [add, setAdd] = useState(false);
   const addToBasket = () => {
     //dispatch the item into the data layer
     dispatch({
@@ -18,7 +20,21 @@ function Product({ id, title, image, price, rating }) {
         oriPrice: price,
       },
     });
+    setAdd(!add);
   };
+  useEffect(() => {
+    if (user) {
+      basket.map((item) => {
+        console.log(item);
+        db.collection("users")
+          .doc(user?.uid)
+          .collection("basket")
+          .doc(item.id)
+          .set({ item: item });
+      });
+    }
+  }, [add]);
+
   return (
     <div className="product">
       <div className="product__info">

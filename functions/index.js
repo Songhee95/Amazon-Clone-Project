@@ -22,6 +22,7 @@ app.get("/", (request, response) => {
 
 // eslint-disable-next-line
 app.post("/payments/create", async (req, res) => {
+  console.log("hey 😀");
   const total = req.query.total;
   console.log("Payment Request Received ", total);
   const paymentIntent = await stripe.paymentIntents.create({
@@ -29,6 +30,7 @@ app.post("/payments/create", async (req, res) => {
     currency: "usd",
   });
   //ok - created
+  console.log(paymentIntent.client_secret);
   res.status(201).send({
     clientSecret: paymentIntent.client_secret,
   });

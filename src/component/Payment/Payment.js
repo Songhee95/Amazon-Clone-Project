@@ -31,11 +31,10 @@ function Payment() {
         url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
       });
       setClientSecret(response.data.clientSecret);
+      console.log("response data 😀", response.data);
     };
     getClientSecret();
   }, [basket]);
-
-  console.log("the secret is >>>>> ", clientSecret);
 
   const monthNames = [
     "Jan",
@@ -87,6 +86,8 @@ function Payment() {
           type: "EMPTY_BASKET",
         });
 
+        // db.collection("users").doc(user?.uid).collection("basket").set();
+
         history.replace("/orders");
       });
   };
@@ -117,7 +118,7 @@ function Payment() {
             <div>Atlanta, GA</div>
           </div>
           <div className="payment__change__btn">
-            <Link>Change</Link>
+            <Link to="/">Change</Link>
           </div>
         </div>
         {/* Payment section - Payment method */}
@@ -132,6 +133,7 @@ function Payment() {
               <CardElement onChange={handleChange} />
               <div className="payment__priceContainer">
                 <CurrencyFormat
+                  key="1"
                   renderText={(value) => <h3>Order Total: {value} </h3>}
                   decimalScale={2}
                   value={getBasketTotal(basket)}
@@ -164,6 +166,7 @@ function Payment() {
                     Items shipped from songsAmazon.com
                   </div>
                   <ReviewProducts
+                    key={item.id}
                     id={item.id}
                     title={item.title}
                     image={item.image}

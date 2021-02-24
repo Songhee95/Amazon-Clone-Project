@@ -38,6 +38,7 @@ function Home() {
 
         <div className="home__row">
           <Product
+            key="1"
             id="1"
             title="Clean Code: A Handbook of Agile Software Craftsmanship 1st Edition"
             price={49.99}
@@ -45,6 +46,7 @@ function Home() {
             rating={5}
           />
           <Product
+            key="2"
             id="2"
             title="Learn JavaScript Quickly: A Complete Beginner’s Guide to Learning JavaScript, Even If You’re New to Programming (Crash Course With Hands-On Project) Paperback – November 10, 2020"
             price={18.99}
@@ -54,6 +56,7 @@ function Home() {
         </div>
         <div className="home__row">
           <Product
+            key="3"
             id="3"
             title="Full-Stack React Projects: Learn MERN stack development by building modern web apps using MongoDB, Express, React, and Node.js, 2nd Edition Paperback – April 17, 2020"
             price={34.99}
@@ -61,6 +64,7 @@ function Home() {
             rating={4}
           />
           <Product
+            key="4"
             id="4"
             title="HTML and CSS: Design and Build Websites 1st Edition"
             price={29.99}
@@ -68,6 +72,7 @@ function Home() {
             rating={4}
           />
           <Product
+            key="5"
             id="5"
             title="Oracle SQL By Example 4th Edition"
             price={27.79}
@@ -77,6 +82,7 @@ function Home() {
         </div>
         <div className="home__row">
           <Product
+            key="6"
             id="6"
             title="The Full Stack Developer: Your Essential Guide to the Everyday Skills Expected of a Modern Full Stack Web Developer Paperback – November 20, 2018"
             price={24.49}
