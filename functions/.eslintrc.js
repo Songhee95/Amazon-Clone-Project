@@ -1,13 +1,11 @@
 module.exports = {
   root: true,
   env: {
-    es6: true,
+    es7: true,
     node: true,
   },
-  extends: [
-    "eslint:recommended",
-    "google",
-  ],
+  parser: "babel-eslint",
+  extends: ["eslint:recommended", "google"],
   rules: {
     quotes: ["error", "double"],
   },

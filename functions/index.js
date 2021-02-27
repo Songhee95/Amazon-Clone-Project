@@ -10,8 +10,6 @@ const stripe = require("stripe")(
 // APP CONFIG
 const app = express();
 
-// MIDDLEWARES
-// eslint-disable-next-line
 app.use(cors({ origin: true }));
 app.use(express.json());
 
@@ -20,7 +18,6 @@ app.get("/", (request, response) => {
   response.status(200).send("hello world");
 });
 
-// eslint-disable-next-line
 app.post("/payments/create", async (req, res) => {
   console.log("hey 😀");
   const total = req.query.total;
